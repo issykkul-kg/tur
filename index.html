@@ -4,16 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Иссык-Куль Этно Турлар • 2025</title>
-
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;900&display=swap" rel="stylesheet">
-
   <!-- Icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-
-  <!-- Swiper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
   <style>
     :root {
       --main:#0b4f3c;
@@ -21,15 +15,14 @@
       --dark:#0f1f1b;
       --bg:#f6f4ef;
     }
-    *{box-sizing:border-box}
+    *{box-sizing:border-box;margin:0;padding:0}
     body{
-      margin:0;
       font-family:'Montserrat',sans-serif;
       background:var(--bg);
       color:#222;
     }
     a{text-decoration:none;color:inherit}
-
+    ul{list-style:none}
     /* HEADER */
     header{
       position:fixed;top:0;left:0;width:100%;z-index:1000;
@@ -46,15 +39,25 @@
       font-weight:900;font-size:22px;letter-spacing:1px;
       color:var(--gold);
     }
+    .menu{
+      display:flex;align-items:center;
+    }
     .menu a{
       margin-left:20px;font-weight:500;transition:.3s
     }
     .menu a:hover{color:var(--gold)}
-
+    .menu select{
+      margin-left:20px;border-radius:8px;padding:8px;background:var(--dark);color:#fff;border:none;
+    }
+    /* Hamburger for mobile */
+    .hamburger{
+      display:none;font-size:24px;cursor:pointer;
+    }
     /* HERO */
     .hero{
       height:100vh;
-      background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;
+      min-height:600px;
+      background:url('https://www.stayadventurous.com/wp-content/uploads/2015/12/KyrgyzstanSunset.jpg') center/cover no-repeat;
       display:flex;align-items:center;
       position:relative;
     }
@@ -65,12 +68,12 @@
     .hero-content{
       position:relative;z-index:2;
       max-width:1200px;margin:auto;padding:0 20px;
-      color:#fff;
+      color:#fff;text-align:center;
     }
     .hero h1{
       font-size:56px;font-weight:900;margin-bottom:20px
     }
-    .hero p{font-size:20px;max-width:600px}
+    .hero p{font-size:20px;max-width:700px;margin:auto}
     .btn{
       display:inline-block;margin-top:30px;
       background:var(--gold);color:#000;
@@ -78,17 +81,15 @@
       font-weight:700;transition:.3s
     }
     .btn:hover{background:#e6bd63}
-
     /* SECTIONS */
     section{padding:100px 20px}
     .container{max-width:1200px;margin:auto}
     h2{
-      text-align:center;font-size:38px;margin-bottom:60px
+      text-align:center;font-size:38px;margin-bottom:60px;color:var(--main);font-weight:700
     }
-
     /* TOURS */
     .tours{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
       gap:30px
     }
     .card{
@@ -96,15 +97,14 @@
       box-shadow:0 20px 40px rgba(0,0,0,.08);
       transition:.3s
     }
-    .card:hover{transform:translateY(-5px)}
-    .card img{width:100%;height:220px;object-fit:cover}
-    .card-body{padding:25px}
-    .card-body h3{margin:0 0 10px}
-    .price{color:var(--main);font-weight:700;margin:15px 0}
-
+    .card:hover{transform:translateY(-10px)}
+    .card img{width:100%;height:240px;object-fit:cover}
+    .card-body{padding:30px;text-align:center}
+    .card-body h3{margin:0 0 15px;font-size:24px}
+    .price{color:var(--main);font-weight:700;font-size:20px;margin:15px 0}
     /* ETHNO */
     .ethno{
-      background:url('https://images.unsplash.com/photo-1581866145113-4a3b67f52f9d') center/cover fixed;
+      background:url('https://garlandmag.com/wp-content/uploads/2019/11/2019-10-22-11.28.24.jpg') center/cover fixed;
       color:#fff;position:relative
     }
     .ethno::before{
@@ -112,51 +112,70 @@
     }
     .ethno .container{position:relative;z-index:2}
     .ethno-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px
     }
     .ethno-item{
-      text-align:center;padding:30px
+      text-align:center;padding:20px
     }
     .ethno-item i{
-      font-size:42px;color:var(--gold);margin-bottom:20px
+      font-size:50px;color:var(--gold);margin-bottom:20px
     }
-
+    .ethno-item p{font-size:18px;font-weight:500}
     /* MODAL */
     .modal{
-      position:fixed;inset:0;background:rgba(0,0,0,.6);
-      display:none;align-items:center;justify-content:center;z-index:2000
+      position:fixed;inset:0;background:rgba(0,0,0,.7);
+      display:none;align-items:center;justify-content:center;z-index:2000;padding:20px
     }
     .modal.active{display:flex}
     .modal-box{
-      background:#fff;padding:30px;border-radius:20px;
+      background:#fff;padding:40px;border-radius:20px;
       max-width:400px;width:100%;text-align:center
     }
     .modal-box input{
-      width:100%;padding:12px;margin:10px 0;border-radius:10px;border:1px solid #ccc
+      width:100%;padding:15px;margin:15px 0;border-radius:10px;border:1px solid #ccc;font-size:16px
     }
-
     /* FOOTER */
     footer{
-      background:var(--dark);color:#aaa;padding:40px 20px
+      background:var(--dark);color:#aaa;padding:60px 20px
     }
-    footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px}
-
+    footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;text-align:center}
+    /* MOBILE IMPROVEMENTS */
     @media(max-width:768px){
-      .hero h1{font-size:40px}
+      .hamburger{display:block}
+      .menu{
+        position:fixed;top:0;right:-100%;width:280px;height:100%;background:var(--dark);
+        flex-direction:column;justify-content:start;padding-top:80px;transition:.4s;
+      }
+      .menu.active{right:0}
+      .menu a{margin:15px 0;font-size:18px}
+      .menu select{margin:20px 0}
+      .hero h1{font-size:42px}
+      .hero p{font-size:18px}
+      section{padding:80px 20px}
+      h2{font-size:32px}
+      .tours{grid-template-columns:1fr;gap:40px}
+      .card img{height:200px}
+      .ethno-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+      .ethno-item i{font-size:40px}
+    }
+    @media(max-width:480px){
+      .hero h1{font-size:36px}
+      .hero p{font-size:16px}
+      .btn{padding:12px 28px;font-size:16px}
     }
   </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
-    <div class="logo">ISSYK-KUL • ETHNO</div>
-    <nav class="menu">
+    <div class="logo" data-i18n="logo">ISSYK-KUL • ETHNO</div>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <nav class="menu" id="menu">
       <a href="#tours" data-i18n="menu_tours">Туры</a>
       <a href="#ethno" data-i18n="menu_ethno">Этно</a>
       <a href="#contact" data-i18n="menu_contact">Контакты</a>
       <a href="#" onclick="openModal()" data-i18n="menu_order">Заказать</a>
-      <select id="langSwitcher" onchange="setLang(this.value)" style="margin-left:15px;border-radius:8px;padding:5px">
+      <select id="langSwitcher" onchange="setLang(this.value)">
         <option value="ru">RU</option>
         <option value="kg">KG</option>
         <option value="en">EN</option>
@@ -164,67 +183,63 @@
     </nav>
   </div>
 </header>
-
 <section class="hero">
   <div class="hero-content">
-    <h1>Иссык-Көл • Этно Турлар</h1>
-    <p>Кыргыз маданияты, боз үй, ат минүү, тоо жана көл – чыныгы жандуу эс алуу.</p>
-    <a class="btn" href="#tours">Тур тандоо</a>
+    <h1 data-i18n="hero_title">Иссык-Куль • Этно Турлар</h1>
+    <p data-i18n="hero_desc">Погрузитесь в кыргызскую культуру: юрты, конные прогулки, горы и озеро — настоящий живой отдых.</p>
+    <a class="btn" href="#tours" data-i18n="hero_btn">Выбрать тур</a>
   </div>
 </section>
-
 <section id="tours">
   <div class="container">
-    <h2>Популярдуу Турлар</h2>
+    <h2 data-i18n="tours_title">Популярные Туры</h2>
     <div class="tours">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea">
+        <img src="https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/12/6d/bc/ca.jpg" alt="Yurt camp at Issyk-Kul">
         <div class="card-body">
-          <h3>Көл + Боз Үй</h3>
-          <p>Иссык-Көл жээгинде этно эс алуу</p>
+          <h3 data-i18n="tour1_title">Озеро + Юрта</h3>
+          <p data-i18n="tour1_desc">Этно-отдых на берегу Иссык-Куля</p>
           <div class="price">от 120$</div>
-          <a class="btn" onclick="openModal()">Заказ кылуу</a>
+          <a class="btn" onclick="openModal()" data-i18n="tour_btn">Заказать</a>
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/The_Seven_Bulls.jpg" alt="Jeti-Ögüz red rocks">
         <div class="card-body">
-          <h3>Жети-Өгүз</h3>
-          <p>Кызыл капчыгайлар жана жаратылыш</p>
+          <h3 data-i18n="tour2_title">Жети-Огуз</h3>
+          <p data-i18n="tour2_desc">Красные каньоны и природа</p>
           <div class="price">от 90$</div>
-          <a class="btn" onclick="openModal()">Заказ кылуу</a>
+          <a class="btn" onclick="openModal()" data-i18n="tour_btn">Заказать</a>
         </div>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2">
+        <img src="https://nomads-life.com/wp-content/uploads/2024/06/Horse-riding-in-Kyrgyzstan.jpg" alt="Horse riding in mountains">
         <div class="card-body">
-          <h3>Ат Минүү Туру</h3>
-          <p>Тоодо чыныгы көчмөн жашоосу</p>
+          <h3 data-i18n="tour3_title">Конный Тур</h3>
+          <p data-i18n="tour3_desc">Настоящая кочевая жизнь в горах</p>
           <div class="price">от 150$</div>
-          <a class="btn" onclick="openModal()">Заказ кылуу</a>
+          <a class="btn" onclick="openModal()" data-i18n="tour_btn">Заказать</a>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <section class="ethno" id="ethno">
   <div class="container">
-    <h2>Эмне үчүн биз?</h2>
+    <h2 data-i18n="ethno_title">Почему мы?</h2>
     <div class="ethno-grid">
-      <div class="ethno-item"><i class="fa-solid fa-house"></i><p>Боз үй</p></div>
-      <div class="ethno-item"><i class="fa-solid fa-horse"></i><p>Ат минүү</p></div>
-      <div class="ethno-item"><i class="fa-solid fa-mountain"></i><p>Тоолор</p></div>
-      <div class="ethno-item"><i class="fa-solid fa-fire"></i><p>Улуттук тамак</p></div>
+      <div class="ethno-item"><i class="fa-solid fa-house-chimney"></i><p data-i18n="ethno1">Юрты</p></div>
+      <div class="ethno-item"><i class="fa-solid fa-horse"></i><p data-i18n="ethno2">Конные прогулки</p></div>
+      <div class="ethno-item"><i class="fa-solid fa-mountain"></i><p data-i18n="ethno3">Горы</p></div>
+      <div class="ethno-item"><i class="fa-solid fa-fire-flame-curved"></i><p data-i18n="ethno4">Национальная кухня</p></div>
     </div>
   </div>
 </section>
-
 <footer id="contact">
   <div class="container">
     <div>
       <h3>Issyk-Kul Ethno</h3>
-      <p>Кыргызстандын жүрөгү</p>
+      <p data-i18n="footer_desc">Сердце Кыргызстана</p>
     </div>
     <div>
       <p>WhatsApp: +996 XXX XXX XXX</p>
@@ -232,48 +247,121 @@
     </div>
   </div>
 </footer>
-
 <div class="modal" id="modal">
   <div class="modal-box">
-    <h3>Заказ берүү</h3>
-    <input placeholder="Атыңыз" />
+    <h3 data-i18n="modal_title">Оформить заказ</h3>
+    <input placeholder="Ваше имя" />
     <input placeholder="Телефон" />
-    <button class="btn" onclick="closeModal()">Жөнөтүү</button>
+    <button class="btn" onclick="closeModal()" data-i18n="modal_btn">Отправить</button>
   </div>
 </div>
-
 <script>
   const translations = {
     ru: {
+      logo: 'ISSYK-KUL • ETHNO',
       menu_tours: 'Туры',
       menu_ethno: 'Этно',
       menu_contact: 'Контакты',
-      menu_order: 'Заказать'
+      menu_order: 'Заказать',
+      hero_title: 'Иссык-Куль • Этно Турлар',
+      hero_desc: 'Погрузитесь в кыргызскую культуру: юрты, конные прогулки, горы и озеро — настоящий живой отдых.',
+      hero_btn: 'Выбрать тур',
+      tours_title: 'Популярные Туры',
+      tour1_title: 'Озеро + Юрта',
+      tour1_desc: 'Этно-отдых на берегу Иссык-Куля',
+      tour2_title: 'Жети-Огуз',
+      tour2_desc: 'Красные каньоны и природа',
+      tour3_title: 'Конный Тур',
+      tour3_desc: 'Настоящая кочевая жизнь в горах',
+      tour_btn: 'Заказать',
+      ethno_title: 'Почему мы?',
+      ethno1: 'Юрты',
+      ethno2: 'Конные прогулки',
+      ethno3: 'Горы',
+      ethno4: 'Национальная кухня',
+      footer_desc: 'Сердце Кыргызстана',
+      modal_title: 'Оформить заказ',
+      modal_btn: 'Отправить'
     },
     kg: {
+      logo: 'ЫСЫК-КӨЛ • ЭТНО',
       menu_tours: 'Турлар',
       menu_ethno: 'Этно',
       menu_contact: 'Байланыш',
-      menu_order: 'Заказ берүү'
+      menu_order: 'Заказ берүү',
+      hero_title: 'Ысык-Көл • Этно Турлар',
+      hero_desc: 'Кыргыз маданияты, боз үй, ат минүү, тоо жана көл – чыныгы жандуу эс алуу.',
+      hero_btn: 'Тур тандоо',
+      tours_title: 'Популярдуу Турлар',
+      tour1_title: 'Көл + Боз Үй',
+      tour1_desc: 'Иссык-Көл жээгинде этно эс алуу',
+      tour2_title: 'Жети-Өгүз',
+      tour2_desc: 'Кызыл капчыгайлар жана жаратылыш',
+      tour3_title: 'Ат Минүү Туру',
+      tour3_desc: 'Тоодо чыныгы көчмөн жашоосу',
+      tour_btn: 'Заказ кылуу',
+      ethno_title: 'Эмне үчүн биз?',
+      ethno1: 'Боз үй',
+      ethno2: 'Ат минүү',
+      ethno3: 'Тоолор',
+      ethno4: 'Улуттук тамак',
+      footer_desc: 'Кыргызстандын жүрөгү',
+      modal_title: 'Заказ берүү',
+      modal_btn: 'Жөнөтүү'
     },
     en: {
+      logo: 'ISSYK-KUL • ETHNO',
       menu_tours: 'Tours',
       menu_ethno: 'Ethno',
       menu_contact: 'Contacts',
-      menu_order: 'Book now'
+      menu_order: 'Book now',
+      hero_title: 'Issyk-Kul • Ethno Tours',
+      hero_desc: 'Immerse yourself in Kyrgyz culture: yurts, horse riding, mountains and lake — real authentic rest.',
+      hero_btn: 'Choose a tour',
+      tours_title: 'Popular Tours',
+      tour1_title: 'Lake + Yurt',
+      tour1_desc: 'Ethno rest on the shore of Issyk-Kul',
+      tour2_title: 'Jeti-Ögüz',
+      tour2_desc: 'Red canyons and nature',
+      tour3_title: 'Horse Riding Tour',
+      tour3_desc: 'Real nomadic life in the mountains',
+      tour_btn: 'Book',
+      ethno_title: 'Why us?',
+      ethno1: 'Yurts',
+      ethno2: 'Horse riding',
+      ethno3: 'Mountains',
+      ethno4: 'National cuisine',
+      footer_desc: 'The heart of Kyrgyzstan',
+      modal_title: 'Place an order',
+      modal_btn: 'Send'
     }
   };
-
   function setLang(lang){
     document.querySelectorAll('[data-i18n]').forEach(el=>{
       const key = el.getAttribute('data-i18n');
-      el.textContent = translations[lang][key];
+      if (translations[lang][key]) {
+        el.textContent = translations[lang][key];
+      }
     });
+    document.documentElement.lang = lang === 'kg' ? 'ky' : lang;
   }
+  setLang('ru');
 
-  function openModal(){document.getElementById('modal').classList.add('active')}
-  function closeModal(){document.getElementById('modal').classList.remove('active')}
+  function toggleMenu(){
+    document.getElementById('menu').classList.toggle('active');
+  }
+  function openModal(){
+    document.getElementById('modal').classList.add('active');
+  }
+  function closeModal(){
+    document.getElementById('modal').classList.remove('active');
+  }
+  // Close menu on link click (mobile)
+  document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('menu').classList.remove('active');
+    });
+  });
 </script>
-
 </body>
 </html>
