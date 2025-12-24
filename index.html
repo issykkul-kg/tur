@@ -43,7 +43,6 @@
       margin: 0 auto;
       padding: 0 20px;
     }
-    /* Анимация появления */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -53,7 +52,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-    /* Header */
     header {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -103,7 +101,6 @@
       padding: 8px;
       color: #fff;
     }
-    /* Mobile Menu Overlay */
     .mobile-overlay {
       position: fixed;
       inset: 0;
@@ -117,7 +114,6 @@
       opacity: 1;
       visibility: visible;
     }
-    /* Hero */
     .hero {
       height: 100dvh;
       min-height: 620px;
@@ -166,7 +162,6 @@
       background: #e6bd63;
       transform: translateY(-3px);
     }
-    /* Sections */
     section { padding: 120px 20px; }
     h2 {
       text-align: center;
@@ -176,7 +171,6 @@
       margin-bottom: 70px;
       line-height: 1.2;
     }
-    /* Tours */
     .tours {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -213,7 +207,6 @@
       color: var(--main);
       margin: 22px 0;
     }
-    /* Ethno */
     .ethno {
       background: url('https://garlandmag.com/wp-content/uploads/2019/11/2019-10-22-11.28.24.jpg') center/cover fixed;
       color: #fff;
@@ -240,7 +233,6 @@
       font-size: 20px;
       font-weight: 600;
     }
-    /* Reviews */
     .review-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -258,7 +250,6 @@
       font-size: 24px;
       margin-bottom: 15px;
     }
-    /* FAQ */
     .faq-item {
       margin-bottom: 15px;
       border-bottom: 1px solid #ddd;
@@ -294,7 +285,6 @@
       max-height: 400px;
       padding: 20px;
     }
-    /* Footer */
     footer {
       background: var(--dark);
       color: #ccc;
@@ -305,7 +295,6 @@
       margin-bottom: 15px;
       font-size: 22px;
     }
-    /* WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
       bottom: 25px;
@@ -326,7 +315,6 @@
     .whatsapp-btn:hover {
       transform: scale(1.12);
     }
-    /* Scroll to Top */
     .scroll-top {
       position: fixed;
       bottom: 100px;
@@ -347,7 +335,6 @@
     .scroll-top.visible {
       display: flex;
     }
-    /* Modal */
     .modal {
       position: fixed;
       inset: 0;
@@ -384,7 +371,6 @@
       margin-top: 0;
       color: var(--main);
     }
-    /* Responsive */
     @media (max-width: 992px) {
       .hero h1 { font-size: 52px; }
       .hero p { font-size: 20px; }
@@ -437,10 +423,8 @@
   </style>
 </head>
 <body>
-  <!-- Mobile Overlay -->
   <div class="mobile-overlay" onclick="toggleMenu()"></div>
 
-  <!-- Header -->
   <header>
     <div class="nav container">
       <div class="logo" data-i18n="logo">ISSYK-KUL • ETHNO</div>
@@ -461,7 +445,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero fade-in">
     <div class="hero-content container">
       <h1 data-i18n="hero_title">Иссык-Куль • Этно Турлар</h1>
@@ -470,7 +453,6 @@
     </div>
   </section>
 
-  <!-- Tours -->
   <section id="tours" class="fade-in">
     <div class="container">
       <h2 data-i18n="tours_title">Наши лучшие туры</h2>
@@ -515,13 +497,13 @@
     </div>
   </section>
 
-  <!-- Ethno -->
+  <!-- Исправленная секция с рабочими иконками -->
   <section class="ethno fade-in" id="ethno">
     <div class="container">
       <h2 data-i18n="ethno_title">Что вас ждёт</h2>
       <div class="ethno-grid">
         <div class="ethno-item">
-          <i class="fa-solid fa-house-chimney"></i>
+          <i class="fa-solid fa-igloo"></i>
           <p data-i18n="ethno1">Настоящие юрты</p>
         </div>
         <div class="ethno-item">
@@ -529,18 +511,17 @@
           <p data-i18n="ethno2">Конные прогулки</p>
         </div>
         <div class="ethno-item">
-          <i class="fa-solid fa-mountain"></i>
+          <i class="fa-solid fa-mountain-sun"></i>
           <p data-i18n="ethno3">Горы и природа</p>
         </div>
         <div class="ethno-item">
-          <i class="fa-solid fa-fire-flame-curved"></i>
+          <i class="fa-solid fa-bowl-food"></i>
           <p data-i18n="ethno4">Национальная кухня</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Reviews -->
   <section id="reviews" class="fade-in">
     <div class="container">
       <h2 data-i18n="reviews_title">Отзывы наших гостей</h2>
@@ -564,7 +545,6 @@
     </div>
   </section>
 
-  <!-- FAQ -->
   <section id="faq" class="fade-in">
     <div class="container">
       <h2 data-i18n="faq_title">Часто задаваемые вопросы</h2>
@@ -591,7 +571,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer id="contact">
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
@@ -608,7 +587,6 @@
     </div>
   </footer>
 
-  <!-- WhatsApp & Scroll Top -->
   <a href="https://wa.me/996709100020" class="whatsapp-btn" target="_blank" rel="noopener" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
@@ -616,7 +594,6 @@
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <!-- Modal -->
   <div class="modal" id="modal">
     <div class="modal-box">
       <h3 data-i18n="modal_title">Заказать тур</h3>
@@ -635,14 +612,13 @@
   </div>
 
   <script>
-    // Простая мультиязычность (только RU пока, можно расширить)
     const translations = {
       ru: {
         logo: "ISSYK-KUL • ETHNO",
         menu_tours: "Туры", menu_ethno: "Этно", menu_reviews: "Отзывы", menu_faq: "FAQ", menu_contact: "Контакты", menu_order: "Заказать тур",
         hero_title: "Иссык-Куль • Этно Турлар", hero_desc: "Погрузитесь в настоящую кыргызскую культуру: юрты, кони, горы, озеро и гостеприимство.", hero_btn: "Выбрать тур",
         tours_title: "Наши лучшие туры",
-        tour1_title: "Озеро + Юрта", tour1_desc: "Этно-отдых в юрте на берегу Иссык-Куля", 
+        tour1_title: "Озеро + Юрта", tour1_desc: "Этно-отдых в юрте на берегу Иссык-Куля",
         tour2_title: "Жети-Өгүз", tour2_desc: "Красные скалы, водопады и чистый воздух",
         tour3_title: "Конный тур", tour3_desc: "Кочевая жизнь в горах с ночёвкой в юрте",
         tour4_title: "Семейный отдых", tour4_desc: "Комфортные юрты, пляж, экскурсии для всей семьи",
@@ -659,7 +635,6 @@
         footer_desc: "Сердце Кыргызстана ждёт вас",
         modal_title: "Заказать тур", modal_send: "Отправить заявку"
       }
-      // kg и en можно добавить позже
     };
 
     function setLang(lang) {
@@ -685,7 +660,7 @@
 
     function closeModal() {
       document.getElementById('modal').classList.remove('active');
-      alert('Заявка отправлена! Мы свяжемся с вами в WhatsApp в ближайшее время.'); // Можно заменить на реальную отправку
+      alert('Заявка отправлена! Мы свяжемся с вами в WhatsApp в ближайшее время.');
     }
 
     function toggleFaq(btn) {
@@ -706,7 +681,6 @@
       });
     };
 
-    // Закрытие меню по клику на ссылку
     document.querySelectorAll('.menu a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('menu').classList.remove('active');
