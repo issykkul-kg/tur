@@ -51,6 +51,7 @@
       opacity: 1;
       transform: translateY(0);
     }
+
     /* ====================== HEADER ====================== */
     header {
       position: fixed;
@@ -66,12 +67,14 @@
       justify-content: space-between;
       padding: 18px 20px;
       color: #fff;
+      position: relative;
     }
     .logo {
       font-weight: 900;
       font-size: 26px;
       letter-spacing: 1px;
       color: var(--gold);
+      margin-left: 110px; /* отступ под логотип */
     }
     .menu {
       display: flex;
@@ -114,6 +117,26 @@
       opacity: 1;
       visibility: visible;
     }
+
+    /* ====================== ЛОГОТИП В ЛЕВОМ ВЕРХНЕМ УГЛУ ====================== */
+    .header-logo {
+      position: fixed;
+      top: 12px;
+      left: 20px;
+      width: 90px;
+      height: 90px;
+      z-index: 1002;
+      pointer-events: none;
+    }
+    .header-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      border: 3px solid rgba(255,255,255,0.2);
+    }
+
     /* ====================== HERO ====================== */
     .hero {
       height: 100dvh;
@@ -163,7 +186,8 @@
       background: #e6bd63;
       transform: translateY(-3px);
     }
-    /* ====================== GENERAL SECTION STYLES ====================== */
+
+    /* ====================== SECTIONS ====================== */
     section { padding: 120px 20px; }
     h2 {
       text-align: center;
@@ -173,83 +197,56 @@
       margin-bottom: 70px;
       line-height: 1.2;
     }
+
     /* ====================== TOURS (6 карточек) ====================== */
-    .tours {
+    .tours, .ethno-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 35px;
     }
-    .card {
+    .card, .ethno-card {
       background: #fff;
       border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
       transition: all 0.4s ease;
     }
-    .card:hover {
+    .card:hover, .ethno-card:hover {
       transform: translateY(-12px);
       box-shadow: 0 25px 50px rgba(0,0,0,0.18);
     }
-    .card img {
+    .card img, .ethno-card img {
       width: 100%;
       height: 260px;
       object-fit: cover;
     }
-    .card-body {
+    .ethno-card img { height: 220px; }
+    .card-body, .ethno-card-body {
       padding: 38px;
       text-align: center;
     }
-    .card-body h3 {
+    .ethno-card-body { padding: 30px; }
+    .card-body h3, .ethno-card-body h3 {
       font-size: 28px;
       margin-bottom: 16px;
       color: var(--main);
     }
+    .ethno-card-body h3 { font-size: 24px; }
     .price {
       font-size: 24px;
       font-weight: 700;
       color: var(--main);
       margin: 22px 0;
     }
-    /* ====================== ETHNO (6 карточек с модалками) ====================== */
-    .ethno-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 35px;
-    }
-    .ethno-card {
-      background: #fff;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
-      cursor: pointer;
-    }
-    .ethno-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.18);
-    }
-    .ethno-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .ethno-card-body {
-      padding: 30px;
-      text-align: center;
-    }
     .ethno-card-body i {
       font-size: 50px;
       color: var(--gold);
       margin-bottom: 15px;
     }
-    .ethno-card-body h3 {
-      font-size: 24px;
-      margin: 15px 0;
-      color: var(--main);
+    .ethno-card {
+      cursor: pointer;
     }
-    .ethno-card-body p {
-      font-size: 16px;
-    }
+
     /* ====================== ETHNO MODAL ====================== */
     .detail-modal {
       position: fixed;
@@ -298,6 +295,7 @@
       color: #aaa;
     }
     .close-detail:hover { color: #000; }
+
     /* ====================== REVIEWS, FAQ, FOOTER ====================== */
     .review-grid {
       display: grid;
@@ -353,6 +351,7 @@
       background: var(--dark);
       color: #ccc;
       padding: 80px 20px 40px;
+      text-align: center;
     }
     .whatsapp-btn {
       position: fixed;
@@ -420,6 +419,7 @@
       border: 1px solid #ccc;
       font-size: 16px;
     }
+
     /* ====================== RESPONSIVE ====================== */
     @media (max-width: 992px) {
       .hero h1 { font-size: 52px; }
@@ -451,11 +451,14 @@
       .hero h1 { font-size: 44px; }
       .hero p { font-size: 18px; }
       .tours, .ethno-grid { grid-template-columns: 1fr; }
+      .logo { margin-left: 85px; font-size: 24px; }
+      .header-logo { width: 70px; height: 70px; top: 10px; left: 15px; }
       .whatsapp-btn { width: 62px; height: 62px; font-size: 32px; bottom: 20px; right: 20px; }
       .scroll-top { bottom: 90px; width: 50px; height: 50px; font-size: 22px; }
     }
     @media (max-width: 480px) {
-      .logo { font-size: 24px; }
+      .logo { font-size: 22px; margin-left: 75px; }
+      .header-logo { width: 60px; height: 60px; }
       .hero h1 { font-size: 38px; }
       .hero p { font-size: 17px; }
       .btn { padding: 16px 36px; font-size: 17px; min-width: 180px; }
@@ -489,6 +492,11 @@
     </div>
   </header>
 
+  <!-- ====================== ЛОГОТИП В ЛЕВОМ ВЕРХНЕМ УГЛУ ====================== -->
+  <div class="header-logo">
+    <img src="https://raw.githubusercontent.com/issykkul-kg/tur/main/images/logotip.png" alt="Issyk-Kul Ethno Logo">
+  </div>
+
   <!-- ====================== HERO ====================== -->
   <section class="hero fade-in">
     <div class="hero-content container">
@@ -498,7 +506,7 @@
     </div>
   </section>
 
-  <!-- ====================== TOURS SECTION (6 карточек) ====================== -->
+  <!-- ====================== TOURS (6 карточек) ====================== -->
   <section id="tours" class="fade-in">
     <div class="container">
       <h2>Наши лучшие туры</h2>
@@ -561,7 +569,7 @@
     </div>
   </section>
 
-  <!-- ====================== ETHNO SECTION (6 карточек) ====================== -->
+  <!-- ====================== ETHNO (6 карточек с модалками) ====================== -->
   <section class="fade-in" id="ethno">
     <div class="container">
       <h2>Что вас ждёт</h2>
@@ -682,12 +690,12 @@
   <!-- ====================== FOOTER ====================== -->
   <footer id="contact">
     <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
-        <div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        <div style="text-align: center;">
           <h3>Issyk-Kul Ethno Tours</h3>
           <p>Сердце Кыргызстана ждёт вас</p>
         </div>
-        <div>
+        <div style="text-align: center;">
           <p><strong>WhatsApp:</strong> +996 709 100 020</p>
           <p><strong>Email:</strong> info@issykkul.kg</p>
           <p>&copy; 2025 Issyk-Kul Ethno. Все права защищены.</p>
@@ -766,38 +774,13 @@
       });
     });
 
-    // Данные для модалок "Что вас ждёт"
     const ethnoDetails = {
-      yurt: {
-        title: "Настоящие юрты",
-        img: "https://nomads-life.com/wp-content/uploads/2024/02/Kyrgyz-Yurt-Interior.jpg",
-        text: "Аутентичные юрты с традиционным декором, печкой и ширдаками. Уютно и тепло даже зимой."
-      },
-      horse: {
-        title: "Конные прогулки",
-        img: "https://kyrgyzstan-tourism.com/wp-content/uploads/2019/03/HBR-1-of-1-e1553921752461.jpg",
-        text: "Маршруты любой сложности. Спокойные лошади, опытные гиды, потрясающие виды."
-      },
-      nature: {
-        title: "Горы и природа",
-        img: "https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg",
-        text: "Чистейшее горное озеро, снежные пики Тянь-Шаня, альпийские луга и свежий воздух."
-      },
-      food: {
-        title: "Национальная кухня",
-        img: "https://nomads-life.com/wp-content/uploads/2024/12/Kyrgyz-Besh-Barmak.webp",
-        text: "Бешбармак, плов, манты, свежий кумыс и айран — всё из местных фермерских продуктов."
-      },
-      eagle: {
-        title: "Охота с беркутом",
-        img: "https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg",
-        text: "Увлекательное шоу с орлами и соколами — древняя кыргызская традиция."
-      },
-      canyons: {
-        title: "Красные каньоны",
-        img: "https://upload.wikimedia.org/wikipedia/commons/0/0d/The_Seven_Bulls.jpg",
-        text: "Жети-Өгүз и каньон Сказка — невероятные марсианские пейзажи и водопады."
-      }
+      yurt: { title: "Настоящие юрты", img: "https://nomads-life.com/wp-content/uploads/2024/02/Kyrgyz-Yurt-Interior.jpg", text: "Аутентичные юрты с традиционным декором, печкой и ширдаками. Уютно и тепло даже зимой." },
+      horse: { title: "Конные прогулки", img: "https://kyrgyzstan-tourism.com/wp-content/uploads/2019/03/HBR-1-of-1-e1553921752461.jpg", text: "Маршруты любой сложности. Спокойные лошади, опытные гиды, потрясающие виды." },
+      nature: { title: "Горы и природа", img: "https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg", text: "Чистейшее горное озеро, снежные пики Тянь-Шаня, альпийские луга и свежий воздух." },
+      food: { title: "Национальная кухня", img: "https://nomads-life.com/wp-content/uploads/2024/12/Kyrgyz-Besh-Barmak.webp", text: "Бешбармак, плов, манты, свежий кумыс и айран — всё из местных продуктов." },
+      eagle: { title: "Охота с беркутом", img: "https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg", text: "Увлекательное шоу с орлами и соколами — древняя кыргызская традиция." },
+      canyons: { title: "Красные каньоны", img: "https://upload.wikimedia.org/wikipedia/commons/0/0d/The_Seven_Bulls.jpg", text: "Жети-Өгүз и каньон Сказка — невероятные марсианские пейзажи и водопады." }
     };
 
     function openEthnoModal(key) {
