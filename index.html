@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Этно-туры на Иссык-Куль: юрты, конные прогулки, горы, национальная кухня. Настоящий кыргызский колорит." />
  
-  <!-- Open Graph / Соцсети -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Иссык-Куль • Этно Турлар 2025" />
   <meta property="og:description" content="Погрузитесь в кыргызскую культуру на берегу Иссык-Куля." />
   <meta property="og:image" content="https://raw.githubusercontent.com/issykkul-kg/tur/main/images/issyk-kul.jpg" />
@@ -37,7 +37,6 @@
       overflow-x: hidden;
     }
     a { text-decoration: none; color: inherit; }
-    ul { list-style: none; padding: 0; margin: 0; }
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -52,6 +51,7 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* ====================== HEADER ====================== */
     header {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -114,6 +114,7 @@
       opacity: 1;
       visibility: visible;
     }
+    /* ====================== HERO ====================== */
     .hero {
       height: 100dvh;
       min-height: 620px;
@@ -162,6 +163,7 @@
       background: #e6bd63;
       transform: translateY(-3px);
     }
+    /* ====================== GENERAL SECTION STYLES ====================== */
     section { padding: 120px 20px; }
     h2 {
       text-align: center;
@@ -171,7 +173,7 @@
       margin-bottom: 70px;
       line-height: 1.2;
     }
-    /* Tours - 6 карточек */
+    /* ====================== TOURS (6 карточек) ====================== */
     .tours {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -208,10 +210,10 @@
       color: var(--main);
       margin: 22px 0;
     }
-    /* Ethno - 6 карточек по 2 ряда (3 в ряду на десктопе, по 2 на планшете, 1 на мобильном) */
+    /* ====================== ETHNO (6 карточек с модалками) ====================== */
     .ethno-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 35px;
     }
     .ethno-card {
@@ -221,8 +223,6 @@
       box-shadow: 0 15px 35px rgba(0,0,0,0.1);
       transition: all 0.4s ease;
       cursor: pointer;
-      display: flex;
-      flex-direction: column;
     }
     .ethno-card:hover {
       transform: translateY(-12px);
@@ -236,7 +236,6 @@
     .ethno-card-body {
       padding: 30px;
       text-align: center;
-      flex-grow: 1;
     }
     .ethno-card-body i {
       font-size: 50px;
@@ -251,7 +250,7 @@
     .ethno-card-body p {
       font-size: 16px;
     }
-    /* Модальные окна */
+    /* ====================== ETHNO MODAL ====================== */
     .detail-modal {
       position: fixed;
       inset: 0;
@@ -297,12 +296,9 @@
       font-size: 36px;
       cursor: pointer;
       color: #aaa;
-      transition: color 0.3s;
     }
-    .close-detail:hover {
-      color: #000;
-    }
-    /* Остальные стили (reviews, faq, footer и т.д.) остаются как раньше */
+    .close-detail:hover { color: #000; }
+    /* ====================== REVIEWS, FAQ, FOOTER ====================== */
     .review-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -342,9 +338,7 @@
       font-size: 24px;
       color: var(--gold);
     }
-    .faq-question.active::after {
-      content: '−';
-    }
+    .faq-question.active::after { content: '−'; }
     .faq-answer {
       max-height: 0;
       overflow: hidden;
@@ -377,9 +371,7 @@
       z-index: 1000;
       transition: all 0.3s;
     }
-    .whatsapp-btn:hover {
-      transform: scale(1.12);
-    }
+    .whatsapp-btn:hover { transform: scale(1.12); }
     .scroll-top {
       position: fixed;
       bottom: 100px;
@@ -397,9 +389,7 @@
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .scroll-top.visible {
-      display: flex;
-    }
+    .scroll-top.visible { display: flex; }
     .modal {
       position: fixed;
       inset: 0;
@@ -421,9 +411,7 @@
       transform: translateY(100%);
       transition: transform 0.4s ease;
     }
-    .modal.active .modal-box {
-      transform: translateY(0);
-    }
+    .modal.active .modal-box { transform: translateY(0); }
     .modal-box select, .modal-box input, .modal-box textarea {
       width: 100%;
       padding: 16px;
@@ -432,37 +420,91 @@
       border: 1px solid #ccc;
       font-size: 16px;
     }
+    /* ====================== RESPONSIVE ====================== */
     @media (max-width: 992px) {
       .hero h1 { font-size: 52px; }
       .hero p { font-size: 20px; }
       h2 { font-size: 40px; }
-      .ethno-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); } /* 2 в ряду на планшете */
     }
     @media (max-width: 768px) {
       .hamburger { display: block; }
-      /* ... остальные мобильные стили ... */
-      .ethno-grid { grid-template-columns: 1fr; } /* 1 в ряду на мобильном */
+      .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100dvh;
+        background: var(--dark);
+        flex-direction: column;
+        padding: 100px 40px 40px;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        gap: 28px;
+        z-index: 1001;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .menu.active { right: 0; }
+      .menu a, .menu select { font-size: 22px; width: 100%; text-align: center; }
+      .menu select { width: 80%; padding: 16px; }
+      section { padding: 100px 20px; }
+      h2 { font-size: 36px; margin-bottom: 50px; }
+      .hero h1 { font-size: 44px; }
+      .hero p { font-size: 18px; }
+      .tours, .ethno-grid { grid-template-columns: 1fr; }
+      .whatsapp-btn { width: 62px; height: 62px; font-size: 32px; bottom: 20px; right: 20px; }
+      .scroll-top { bottom: 90px; width: 50px; height: 50px; font-size: 22px; }
+    }
+    @media (max-width: 480px) {
+      .logo { font-size: 24px; }
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 17px; }
+      .btn { padding: 16px 36px; font-size: 17px; min-width: 180px; }
+      h2 { font-size: 32px; }
+      section { padding: 80px 20px; }
     }
   </style>
 </head>
 <body>
+  <!-- ====================== MOBILE OVERLAY ====================== -->
   <div class="mobile-overlay" onclick="toggleMenu()"></div>
 
+  <!-- ====================== HEADER ====================== -->
   <header>
-    <!-- ... header как раньше ... -->
+    <div class="nav container">
+      <div class="logo">ISSYK-KUL • ETHNO</div>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <nav class="menu" id="menu">
+        <a href="#tours">Туры</a>
+        <a href="#ethno">Этно</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Контакты</a>
+        <a href="#" onclick="openModal(); return false;">Заказать тур</a>
+        <select id="langSwitcher">
+          <option value="ru">RU</option>
+          <option value="kg">KG</option>
+          <option value="en">EN</option>
+        </select>
+      </nav>
+    </div>
   </header>
 
+  <!-- ====================== HERO ====================== -->
   <section class="hero fade-in">
-    <!-- ... hero как раньше ... -->
+    <div class="hero-content container">
+      <h1>Иссык-Куль • Этно Турлар</h1>
+      <p>Погрузитесь в настоящую кыргызскую культуру: юрты, кони, горы, озеро и гостеприимство.</p>
+      <a href="#tours" class="btn">Выбрать тур</a>
+    </div>
   </section>
 
-  <!-- Туры - теперь 6 карточек -->
+  <!-- ====================== TOURS SECTION (6 карточек) ====================== -->
   <section id="tours" class="fade-in">
     <div class="container">
-      <h2 data-i18n="tours_title">Наши лучшие туры</h2>
+      <h2>Наши лучшие туры</h2>
       <div class="tours">
         <div class="card">
-          <img src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/uncorneredmarket.com/wp-content/uploads/2017/09/SouthShore_Amaluu_Yurts.jpg" alt="Юрты на Иссык-Куле">
+          <img src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/uncorneredmarket.com/wp-content/uploads/2017/09/SouthShore_Amaluu_Yurts.jpg" alt="Юрта">
           <div class="card-body">
             <h3>Классический юрта-тур</h3>
             <p>Проживание в юрте на берегу, пляж и отдых</p>
@@ -474,16 +516,16 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/The_Seven_Bulls.jpg" alt="Жети-Огуз">
           <div class="card-body">
             <h3>Жети-Өгүз и каньоны</h3>
-            <p>Красные скалы, водопады, сказочные каньоны</p>
+            <p>Красные скалы, водопады, каньон Сказка</p>
             <div class="price">от 140$</div>
             <a href="#" class="btn" onclick="openModal('Жети-Өгүз и каньоны'); return false;">Заказать</a>
           </div>
         </div>
         <div class="card">
-          <img src="https://kyrgyzstan-tourism.com/wp-content/uploads/2019/03/HBR-1-of-1-e1553921752461.jpg" alt="Конный тур">
+          <img src="https://ychef.files.bbci.co.uk/1280x720/p01bl9r8.jpg" alt="Конный тур">
           <div class="card-body">
             <h3>Конный тур в горы</h3>
-            <p>Многодневное приключение верхом с ночёвками в юртах</p>
+            <p>Многодневное приключение с ночёвками в юртах</p>
             <div class="price">от 250$</div>
             <a href="#" class="btn" onclick="openModal('Конный тур в горы'); return false;">Заказать</a>
           </div>
@@ -492,7 +534,7 @@
           <img src="https://www.advantour.com/img/kyrgyzstan/issyk-kul/issyk-kul-lake.jpg" alt="Семейный отдых">
           <div class="card-body">
             <h3>Семейный отдых</h3>
-            <p>Комфортные юрты, пляж, экскурсии для детей</p>
+            <p>Комфортные юрты, пляж, программа для детей</p>
             <div class="price">от 180$</div>
             <a href="#" class="btn" onclick="openModal('Семейный отдых'); return false;">Заказать</a>
           </div>
@@ -501,13 +543,13 @@
           <img src="https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg" alt="Охота с беркутом">
           <div class="card-body">
             <h3>Охота с беркутом</h3>
-            <p>Шоу с орлами и соколами, фото с птицами</p>
+            <p>Шоу с орлами, фото, традиции кочевников</p>
             <div class="price">от 160$</div>
             <a href="#" class="btn" onclick="openModal('Охота с беркутом'); return false;">Заказать</a>
           </div>
         </div>
         <div class="card">
-          <img src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg" alt="Панорама Иссык-Куля">
+          <img src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg" alt="Круиз">
           <div class="card-body">
             <h3>Круиз по озеру</h3>
             <p>Катание на лодке, рыбалка, пикник на воде</p>
@@ -519,17 +561,17 @@
     </div>
   </section>
 
-  <!-- Что вас ждёт - 6 карточек с модальными окнами -->
+  <!-- ====================== ETHNO SECTION (6 карточек) ====================== -->
   <section class="fade-in" id="ethno">
     <div class="container">
-      <h2 data-i18n="ethno_title">Что вас ждёт</h2>
+      <h2>Что вас ждёт</h2>
       <div class="ethno-grid">
         <div class="ethno-card" onclick="openEthnoModal('yurt')">
-          <img src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/uncorneredmarket.com/wp-content/uploads/2017/09/SouthShore_Amaluu_Yurts.jpg" alt="Настоящие юрты">
+          <img src="https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/uncorneredmarket.com/wp-content/uploads/2017/09/SouthShore_Amaluu_Yurts.jpg" alt="Юрты">
           <div class="ethno-card-body">
             <i class="fa-solid fa-igloo"></i>
             <h3>Настоящие юрты</h3>
-            <p>Традиционное жильё кочевников с уютом и видом на озеро</p>
+            <p>Традиционное жильё кочевников с уютным интерьером</p>
           </div>
         </div>
         <div class="ethno-card" onclick="openEthnoModal('horse')">
@@ -537,19 +579,19 @@
           <div class="ethno-card-body">
             <i class="fa-solid fa-horse"></i>
             <h3>Конные прогулки</h3>
-            <p>Верхом по горам и долинам</p>
+            <p>Верхом по горам и живописным тропам</p>
           </div>
         </div>
         <div class="ethno-card" onclick="openEthnoModal('nature')">
-          <img src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg" alt="Горы и озеро">
+          <img src="https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg" alt="Природа">
           <div class="ethno-card-body">
             <i class="fa-solid fa-mountain-sun"></i>
             <h3>Горы и природа</h3>
-            <p>Панорамы озера и Тянь-Шаня</p>
+            <p>Кристальное озеро и величественные вершины</p>
           </div>
         </div>
         <div class="ethno-card" onclick="openEthnoModal('food')">
-          <img src="https://nomads-life.com/wp-content/uploads/2024/12/Kyrgyz-Besh-Barmak.webp" alt="Национальная кухня">
+          <img src="https://nomads-life.com/wp-content/uploads/2024/12/Kyrgyz-Besh-Barmak.webp" alt="Кухня">
           <div class="ethno-card-body">
             <i class="fa-solid fa-bowl-food"></i>
             <h3>Национальная кухня</h3>
@@ -557,11 +599,11 @@
           </div>
         </div>
         <div class="ethno-card" onclick="openEthnoModal('eagle')">
-          <img src="https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg" alt="Охота с беркутом">
+          <img src="https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg" alt="Беркут">
           <div class="ethno-card-body">
             <i class="fa-solid fa-dove"></i>
             <h3>Охота с беркутом</h3>
-            <p>Древняя традиция охоты с орлами</p>
+            <p>Древняя традиция охоты с хищными птицами</p>
           </div>
         </div>
         <div class="ethno-card" onclick="openEthnoModal('canyons')">
@@ -569,14 +611,14 @@
           <div class="ethno-card-body">
             <i class="fa-solid fa-mountain"></i>
             <h3>Красные каньоны</h3>
-            <p>Жети-Өгүз и Сказка — марсианские пейзажи</p>
+            <p>Жети-Өгүз и марсианские пейзажи Сказки</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Модальное окно для "Что вас ждёт" -->
+  <!-- ====================== ETHNO MODAL ====================== -->
   <div class="detail-modal" id="ethnoModal">
     <div class="detail-box">
       <span class="close-detail" onclick="closeEthnoModal()">&times;</span>
@@ -586,41 +628,175 @@
     </div>
   </div>
 
-  <!-- Остальные секции (reviews, faq, footer, модалка заказа) как раньше -->
+  <!-- ====================== REVIEWS ====================== -->
+  <section id="reviews" class="fade-in">
+    <div class="container">
+      <h2>Отзывы наших гостей</h2>
+      <div class="review-grid">
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Незабываемый отдых! Юрта, озеро, кони — всё как в сказке. Хозяева очень гостеприимные.</p>
+          <p class="review-author">— Айгуль, Бишкек</p>
+        </div>
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Лучшее место для перезагрузки. Тишина, горы, вкусная еда. Обязательно вернёмся!</p>
+          <p class="review-author">— Дмитрий, Москва</p>
+        </div>
+        <div class="review">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">Дети в восторге от конных прогулок. Всё организовано на высшем уровне.</p>
+          <p class="review-author">— Эльмира, Алматы</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- ====================== FAQ ====================== -->
+  <section id="faq" class="fade-in">
+    <div class="container">
+      <h2>Часто задаваемые вопросы</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Когда лучше ехать на Иссык-Куль?</button>
+          <div class="faq-answer">
+            <p>Лучшее время — с июня по сентябрь. Вода тёплая, погода стабильная. Зимой тоже красиво и тихо.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Нужно ли уметь ездить на лошади?</button>
+          <div class="faq-answer">
+            <p>Нет. У нас спокойные лошади и опытные инструкторы. Подходит даже новичкам.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">Что включено в стоимость тура?</button>
+          <div class="faq-answer">
+            <p>Проживание в юрте, трёхразовое питание, экскурсии, конные прогулки (по программе), трансфер от/до Бишкека.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer id="contact">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center;">
+        <div>
+          <h3>Issyk-Kul Ethno Tours</h3>
+          <p>Сердце Кыргызстана ждёт вас</p>
+        </div>
+        <div>
+          <p><strong>WhatsApp:</strong> +996 709 100 020</p>
+          <p><strong>Email:</strong> info@issykkul.kg</p>
+          <p>&copy; 2025 Issyk-Kul Ethno. Все права защищены.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ====================== WHATSAPP & SCROLL TOP ====================== -->
+  <a href="https://wa.me/996709100020" class="whatsapp-btn" target="_blank" rel="noopener">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <div class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <!-- ====================== ORDER MODAL ====================== -->
+  <div class="modal" id="modal">
+    <div class="modal-box">
+      <h3>Заказать тур</h3>
+      <select id="tourSelect">
+        <option value="">— Выберите тур —</option>
+        <option value="Классический юрта-тур">Классический юрта-тур</option>
+        <option value="Жети-Өгүз и каньоны">Жети-Өгүз и каньоны</option>
+        <option value="Конный тур в горы">Конный тур в горы</option>
+        <option value="Семейный отдых">Семейный отдых</option>
+        <option value="Охота с беркутом">Охота с беркутом</option>
+        <option value="Круиз по озеру">Круиз по озеру</option>
+      </select>
+      <input type="text" placeholder="Ваше имя" required />
+      <input type="tel" placeholder="Телефон (WhatsApp)" required />
+      <textarea rows="4" placeholder="Когда планируете приехать? Сколько человек? Пожелания?"></textarea>
+      <button class="btn" onclick="closeModal()">Отправить заявку</button>
+    </div>
+  </div>
+
+  <!-- ====================== SCRIPT ====================== -->
   <script>
-    // ... предыдущие функции ...
+    function toggleMenu() {
+      document.getElementById('menu').classList.toggle('active');
+      document.querySelector('.mobile-overlay').classList.toggle('active');
+    }
 
+    function openModal(tour = '') {
+      if (tour) document.getElementById('tourSelect').value = tour;
+      document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+      alert('Заявка отправлена! Мы свяжемся с вами в WhatsApp в ближайшее время.');
+    }
+
+    function toggleFaq(btn) {
+      btn.classList.toggle('active');
+      btn.nextElementSibling.classList.toggle('active');
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.onscroll = function() {
+      document.querySelector('.scroll-top').classList.toggle('visible', window.pageYOffset > 500);
+      document.querySelectorAll('.fade-in').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    };
+
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu').classList.remove('active');
+        document.querySelector('.mobile-overlay').classList.remove('active');
+      });
+    });
+
+    // Данные для модалок "Что вас ждёт"
     const ethnoDetails = {
       yurt: {
         title: "Настоящие юрты",
-        img: "https://cdn.shortpixel.ai/spai/q_lossy+ret_img+to_auto/uncorneredmarket.com/wp-content/uploads/2017/09/SouthShore_Amaluu_Yurts.jpg",
-        text: "Проживание в аутентичных юртах с традиционным интерьером. Тепло от печки, ширдаки, ночёвка под звёздами на берегу озера."
+        img: "https://nomads-life.com/wp-content/uploads/2024/02/Kyrgyz-Yurt-Interior.jpg",
+        text: "Аутентичные юрты с традиционным декором, печкой и ширдаками. Уютно и тепло даже зимой."
       },
       horse: {
         title: "Конные прогулки",
         img: "https://kyrgyzstan-tourism.com/wp-content/uploads/2019/03/HBR-1-of-1-e1553921752461.jpg",
-        text: "Верховые маршруты для всех уровней. Спокойные лошади, опытные гиды, виды на озеро и горы."
+        text: "Маршруты любой сложности. Спокойные лошади, опытные гиды, потрясающие виды."
       },
       nature: {
         title: "Горы и природа",
         img: "https://kalpak-travel.com/wp-content/uploads/2021/02/issyk-kul.jpg",
-        text: "Панорамные виды на Иссык-Куль, снежные пики Тянь-Шаня, чистый воздух и тишина."
+        text: "Чистейшее горное озеро, снежные пики Тянь-Шаня, альпийские луга и свежий воздух."
       },
       food: {
         title: "Национальная кухня",
         img: "https://nomads-life.com/wp-content/uploads/2024/12/Kyrgyz-Besh-Barmak.webp",
-        text: "Свежий бешбармак, плов, манты, кумыс. Ужин у костра из местных продуктов."
+        text: "Бешбармак, плов, манты, свежий кумыс и айран — всё из местных фермерских продуктов."
       },
       eagle: {
         title: "Охота с беркутом",
         img: "https://www.wandersmiles.com/wp-content/uploads/2021/03/Eagle-Hunter-in-Kyrgyzstan.jpg",
-        text: "Шоу с орлами и соколами. Древняя кыргызская традиция охоты с хищными птицами."
+        text: "Увлекательное шоу с орлами и соколами — древняя кыргызская традиция."
       },
       canyons: {
         title: "Красные каньоны",
         img: "https://upload.wikimedia.org/wikipedia/commons/0/0d/The_Seven_Bulls.jpg",
-        text: "Жети-Өгүз — семь быков из красного камня, водопады и каньон Сказка с марсианскими пейзажами."
+        text: "Жети-Өгүз и каньон Сказка — невероятные марсианские пейзажи и водопады."
       }
     };
 
@@ -636,7 +812,9 @@
       document.getElementById('ethnoModal').classList.remove('active');
     }
 
-    // ... остальной скрипт ...
+    document.getElementById('ethnoModal').addEventListener('click', function(e) {
+      if (e.target === this) closeEthnoModal();
+    });
   </script>
 </body>
 </html>
